@@ -1,6 +1,10 @@
 package factorymethod
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/alecthomas/assert"
+)
 
 func compute(factory OperatorFactory, a, b int) int {
 	op := factory.Create()
@@ -19,6 +23,8 @@ func TestOperator(t *testing.T) {
 		t.Fatal("error with factory method pattern")
 	}
 
+	assert.Equal(t, compute(MultipyOperatorFactory{}, 2, 3), 6, "MultipyOperatorFactory do not work")
+	
 	factory = MinusOperatorFactory{}
 	if compute(factory, 4, 2) != 2 {
 		t.Fatal("error with factory method pattern")

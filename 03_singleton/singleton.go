@@ -16,3 +16,18 @@ func GetInstance() *Singleton {
 
 	return singleton
 }
+
+
+//HungrySingleton 为饿汉式, 个人认为的一种实现
+type HungrySingleton struct{}
+
+var  hungrySingleton *HungrySingleton
+
+func init(){
+	hungrySingleton = &HungrySingleton{}
+}
+
+//GetHungryInstance 返回饿汉式单例对象
+func GetHungryInstance() *HungrySingleton{
+	return hungrySingleton
+}

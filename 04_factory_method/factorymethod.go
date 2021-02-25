@@ -64,3 +64,20 @@ type MinusOperator struct {
 func (o MinusOperator) Result() int {
 	return o.a - o.b
 }
+
+//MultipyOperator 乘法
+type MultipyOperator struct{
+	*OperatorBase
+}
+
+type MultipyOperatorFactory struct{}
+
+func (m MultipyOperatorFactory) Create() Operator{
+	return &MultipyOperator{
+		OperatorBase: &OperatorBase{},
+	}
+}
+
+func (o MultipyOperator) Result() int {
+	return o.a * o.b
+}

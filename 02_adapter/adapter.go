@@ -1,11 +1,13 @@
 package adapter
 
 //Target 是适配的目标接口
+//目标
 type Target interface {
-	Request() string
+	Request() string 
 }
 
 //Adaptee 是被适配的目标接口
+//原型，需要被适配成目标
 type Adaptee interface {
 	SpecificRequest() string
 }
